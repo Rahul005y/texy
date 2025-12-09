@@ -1,0 +1,54 @@
+let map = L.map("map").setView([20.5937, 78.9629], 5); // India Default
+
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  maxZoom: 19,
+}).addTo(map);
+
+let marker = null;
+let watchId = null;
+
+const startBtn = document.getElementById("startBtn");
+const stopBtn = document.getElementById("stopBtn");
+
+// ✅ Start Tracking
+startBtn.addEventListener("click", () => {
+  if (!navigator.geolocation) {
+    alert("Geolocation not supported");
+    return;
+  }
+
+  watchId = navigator.geolocation.watchPosition(
+    (position) => {
+      let lat = position.coords.latitude;
+      let lng = position.coords.longitude;
+
+      if (!marker) {
+        marker = L.marker([lat, lng]).addTo(map);
+      } else {
+        marker.setLatLng([lat, lng]);
+      }
+
+      map.setView([lat, lng], 16);
+    },
+    (error) => {
+      alert("Location Error");
+    },
+    {
+      enableHighAccuracy: true,
+      maximumAge: 0,
+      timeout: 5000
+    }
+  );
+
+  startBtn.disabled = true;
+  stopBtn.disabled = false;
+});
+
+// ✅ Stop Tracking
+stopBtn.addEventListener("click", () => {
+  navigator.geolocation.clearWatch(watchId);
+  startBtn.disabled = false;
+  stopBtn.disabled = true;
+
+  alert("Tracking Stopped");
+});

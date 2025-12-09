@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Live Location Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+
+  <link rel="stylesheet" href="map.css">
+</head>
+<body>
+
+  <div class="header">
+    <h2>📍 Live Location Tracker</h2>
+    <button id="startBtn">Start Tracking</button>
+    <button id="stopBtn" disabled>Stop Tracking</button>
+  </div>
+
+
+  <div id="lat"></div>
+
+  <div id="lan"></div>
+
+  <div id="map"></div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+
+  <script src="map.js"></script>
+
+</body>
+</html>

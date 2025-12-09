@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Weather App</title>
+
+  <style>
+    body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(to right, #1e3c72, #2a5298);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  width: 300px;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+input {
+  width: 90%;
+  padding: 8px;
+  margin-top: 10px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 8px 20px;
+  background: #1e3c72;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+h1 {
+  font-size: 40px;
+  margin: 10px 0;
+}
+
+  </style>
+  
+</head>
+<body>
+
+  <div class="card">
+    <h2>🌤 Weather App</h2>
+
+    <input type="text" id="cityInput" placeholder="Enter city name" />
+    <button id="btn">Get Weather</button>
+
+    <h3 id="cityName"></h3>
+    <h1 id="temp"></h1>
+    <h1 id="humidity"></h1>
+    <p id="weather"></p>
+  </div>
+
+  <script src="weather.js"></script>
+</body>
+</html>
